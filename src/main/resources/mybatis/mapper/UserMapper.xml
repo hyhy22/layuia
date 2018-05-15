@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.HyDao" >
+
+    <select id="queryUser" resultType="com.jk.model.User">
+        select * from u_user
+    </select>
+
+   <insert id="addUser" parameterType="com.jk.model.User">
+        insert into u_user values(#{userid},#{username},#{userpas},#{address},#{birthday})
+    </insert>
+
+
+       <delete id="deleteUser" parameterType="Integer">
+           delete from u_user where userid=#{userid}
+       </delete>
+
+
+
+      <select id="queryhui" parameterType="Integer" resultType="com.jk.model.User">
+          select * from u_user where userid=#{userid}
+      </select>
+
+    <update id="updateUser" parameterType="com.jk.model.User">
+        update u_user set username=#{username},address=#{address},birthday=#{birthday} where userid=#{userid}
+    </update>
+
+
+    <!--<delete id="deleteNews" parameterType="Integer">
+        delete from news where newsid=#{newsid}
+    </delete>
+
+    <insert id="addNews" parameterType="com.jk.model.News">
+        insert into news values(#{newsid},#{newsname},#{newsintr})
+    </insert>
+
+    <select id="queryByIdNews" parameterType="Integer" resultType="com.jk.model.News">
+        select * from news where newsid=#{newsid}
+    </select>
+
+    <update id="updateNews" parameterType="com.jk.model.News">
+        update news set newsname=#{newsname},newsintr=#{newsintr} where newsid=#{newsid}
+    </update>-->
+
+</mapper>
